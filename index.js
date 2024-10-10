@@ -177,7 +177,7 @@ console.log(channelHasVideo("The Universal S", channels[1]));
  * BONUS: use iteration method `.find()`
  ****************************************************************/
 function getChannelByName(channelName, channels) {
-  return channels.find((channelName) => channels.name === channels.channelName);
+  return channels.find((channel) => channel.name === channelName);
 }
 //!!!!!!!! i spent a good 30min on this i know how it works but not entirely. I know, but i dont know how i know!!!!!!
 
@@ -209,7 +209,8 @@ console.log(getChannelByVideoTitle("The Universal S", channels));
 function searchChannels(query, channels) {
   return channels.filter(
     (channel) =>
-      channel.name.includes(query) || channel.description.includes(query)
+      channel.name.toLowerCase().includes(query.toLowerCase()) ||
+      channel.description.toLowerCase().includes(query.toLowerCase())
   );
 }
 console.log(searchChannels("the", channels));
